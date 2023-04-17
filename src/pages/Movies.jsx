@@ -1,10 +1,11 @@
 import { useState, useEffect } from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useLocation } from 'react-router-dom';
 import { api } from 'API/api-service';
 
 const Movies = () => {
   const [searchQuery, setSwarchQuery] = useState('');
   const [searchMovies, setSearchMovies] = useState([]);
+  const location = useLocation();
 
   useEffect(() => {
     if (!searchQuery) {
@@ -30,7 +31,7 @@ const Movies = () => {
           searchMovies.map(movie => {
             return (
               <li key={movie.id}>
-                <NavLink to={`${movie.id}`}>
+                <NavLink to={`${movie.id}`} state={{from: location}}>
                   <img src={movie.poster_path} alt="" width="250px" />
                   <p className='title'>{movie.title || movie.name}</p>
                 </NavLink>

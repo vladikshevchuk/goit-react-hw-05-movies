@@ -1,11 +1,14 @@
-import LinkStyled from 'components/styledCssForLink/LincStyled';
-import { useEffect, useState } from 'react';
-import { Outlet, useParams } from 'react-router-dom';
+import { useEffect, useRef, useState } from 'react';
+import { Outlet, useLocation, useParams } from 'react-router-dom';
 import { api } from '../API/api-service';
+import LinkStyled from 'components/styledCssForLink/LinkStyled';
+import Button from 'components/styledCssForLink/ButtonStyled';
 
 const MovieDetails = () => {
   const { movieId } = useParams();
   const [movie, setMovie] = useState({});
+  const location = useLocation();
+  const backLinkLocationRef = useRef(location.state?.from ?? '/');
 
   useEffect(() => {
     api.getDetails(movieId).then(item => setMovie(item));
@@ -13,6 +16,7 @@ const MovieDetails = () => {
 
   return (
     <>
+      <Button to={backLinkLocationRef.current}>back</Button>
       <div className="movie">
         <img src={movie.poster_path} alt={movie.title} width="250px" />
         <div className="description">
