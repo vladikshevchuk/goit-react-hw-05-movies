@@ -1,9 +1,9 @@
 import { useEffect, useRef, useState } from 'react';
 import { Outlet, useLocation, useParams } from 'react-router-dom';
 import { api } from '../API/api-service';
-import no_movie from 'images/no-movie.jpg';
 import LinkStyled from 'components/styledCssForLink/LinkStyled';
 import Button from 'components/styledCssForLink/ButtonStyled';
+import MovieInfo from 'components/MovieInfo/MovieInfo';
 
 const MovieDetails = () => {
   const { movieId } = useParams();
@@ -24,23 +24,7 @@ const MovieDetails = () => {
       <Button to={backLinkLocationRef.current}>back</Button>
       {movie && (
         <>
-          <div className="movie">
-            <img
-              src={
-                `https://image.tmdb.org/t/p/w500${movie.poster_path}` ||
-                no_movie
-              }
-              alt={movie.title}
-              width="250px"
-            />
-            <div className="description">
-              <h2>{movie.title || movie.name}</h2>
-              <p>Overview:</p>
-              <p>{movie.overview}</p>
-              <p>Popularity: {movie.popularity}</p>
-              <p>Release date: {movie.release_date}</p>
-            </div>
-          </div>
+          <MovieInfo movie={ movie} />
           <div className="movie-info">
             <p>Additional information</p>
             <ul className="movie-info-link">

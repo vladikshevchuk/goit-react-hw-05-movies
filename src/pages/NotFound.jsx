@@ -1,6 +1,6 @@
 const NotFound = () => {
     return (
-        <div>извините, такой страницы не существует</div>
+        <div>sorry, there is no such page</div>
     )
 }
 
