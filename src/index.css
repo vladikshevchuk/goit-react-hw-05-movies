@@ -1,6 +1,14 @@
 @import-normalize; /* bring in normalize.css styles */
 
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
 body {
+  height: 100%;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
@@ -12,4 +20,71 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.body-App {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+header {
+  padding-top: 15px;
+  height: 50px;
+  background-color: #8abad3;
+}
+
+main {
+  margin: 30px;
+  flex: 1 1 auto;
+}
+
+footer {
+  padding-top: 15px;
+  text-align: center;
+  height: 50px;
+  background-color: #8abad3;
+}
+
+span {
+  font-weight: 400;
+}
+
+ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+li {
+  list-style-type: none;
+}
+
+.title {
+  width: 200px;
+}
+
+.movie {
+  display: flex;
+  margin-left: 40px;
+}
+
+.description {
+  margin-left: 30px;
+}
+
+.movie-info {
+  margin: 20px 0;
+  padding-left: 40px;
+  border-top: 2px solid black;
+  border-bottom: 2px solid black;
+}
+
+.movie-info-link {
+  display: block;
+  padding: 0;
+}
+
+.link {
+  list-style-type: disc;
 }
