@@ -11,7 +11,7 @@ const Reviews = () => {
     api.getReviews(movieId).then(item => {
       setReviews(item);
     });
-  });
+  }, [movieId]);
 
   return reviews.length === 0 ? (
     <p>{message}</p>
