@@ -1,3 +1,4 @@
+import { Suspense } from 'react';
 import { Outlet } from 'react-router-dom';
 import LinkStyled from './styledCssForLink/LinkStyled';
 
@@ -11,7 +12,9 @@ const SharedLayout = () => {
         </nav>
       </header>
       <main>
-        <Outlet />
+        <Suspense fallback={<div>Loading...</div>}>
+          <Outlet />
+        </Suspense>
       </main>
       <footer>made by means of "The Movie Database API"</footer>
     </div>
